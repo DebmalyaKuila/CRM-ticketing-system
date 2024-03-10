@@ -3,7 +3,7 @@ import {Form,Input,Button,Typography} from "antd"
 
 
 
-const ResetPassword = ({handleOnChange,email,handleOnResetPasswordSubmit}) => {
+const ResetPassword = ({handleOnResetPasswordSubmit}) => {
 
   return (
     <div className='bg-slate-100 px-20 py-14 rounded-xl'>
@@ -18,15 +18,14 @@ const ResetPassword = ({handleOnChange,email,handleOnResetPasswordSubmit}) => {
             name="email"
             rules={[
                 {
-                  required: true,
-                  message: 'Please input your email !',
+                  message: 'Please enter a valid email',
+                  type:"email"
                 },
               ]}
             >
             <Input 
             placeholder='Enter Email ' 
-            onChange={handleOnChange} 
-            value={email} 
+            required
             />
             </Form.Item>
             

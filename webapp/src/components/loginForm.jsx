@@ -3,7 +3,7 @@ import {Form,Input,Button,Typography} from "antd"
 
 
 
-const Login = ({handleOnChange,email,password,handleOnSubmit}) => {
+const Login = ({handleOnSubmit}) => {
 
 
 
@@ -12,7 +12,6 @@ const Login = ({handleOnChange,email,password,handleOnSubmit}) => {
         <Typography.Title level={2} className='text-center pb-6'>Client Login</Typography.Title>
         <Form
         layout='vertical'
-        name='login'
         onFinish={handleOnSubmit}
         >
             <Form.Item
@@ -20,15 +19,14 @@ const Login = ({handleOnChange,email,password,handleOnSubmit}) => {
             name="email"
             rules={[
                 {
-                  required: true,
-                  message: 'Please input your email !',
+                  message: 'Please enter a valid email',
+                  type:"email"
                 },
               ]}
             >
             <Input 
             placeholder='Enter Email ' 
-            onChange={handleOnChange} 
-            value={email} 
+            required
             />
             </Form.Item>
             <Form.Item
@@ -36,15 +34,13 @@ const Login = ({handleOnChange,email,password,handleOnSubmit}) => {
       name="password"
       rules={[
         {
-          required: true,
-          message: 'Please input your password!',
+          message: 'Please enter your password!',
         },
       ]}
     >
       <Input.Password 
       placeholder='Enter Password' 
-      onChange={handleOnChange} 
-      value={password} 
+      required
       />
     </Form.Item>
     <Form.Item
