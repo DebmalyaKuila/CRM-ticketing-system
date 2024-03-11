@@ -1,8 +1,9 @@
-import React from 'react'
-import {Breadcrumb,Button,Typography} from 'antd'
-import TicketTable from '../../components/tickets-table'
+import React,{useEffect, useState} from 'react'
+import { Breadcrumb, Button, Typography, Input ,Table} from 'antd'
 
-const Dashboard = () => {
+import TicketTable from '../../components/tickets-table'
+const TicketList = () => {
+
   const tickets= [
     {
         ticket_id: '1',
@@ -59,34 +60,65 @@ const Dashboard = () => {
   issue_date:"2024-05-02"
 },
 ];
+
+const [tableData,setTableData]=useState([])
+
+useEffect(()=>{
+  setTableData(tickets)
+},[])
+
+
+  const onSearch = (value, _e, info) => {
+    console.log(info?.source, value);
+
+    if(info?.source=='input'){
+      let filteredTableData=tableData.filter((obj)=>{
+        return obj.issue.toLowerCase().includes(value.toLowerCase())
+       })
+       setTableData(filteredTableData)
+    }else{
+      setTableData(tickets)
+    }
+
+    
+  }
+
+
   return (
-    <div className=' h-full px-2 py-4'>
+    <div>
       <Breadcrumb
-      items={[
-        {
-          title: <a href="">Home</a>,
-        },
-        {
-          title: <a href="">Dashboard</a>,
-        }
-      ]}
+        items={[
+          {
+            title: <a href="">Home</a>,
+          },
+          {
+            title: <a href="">Ticket Lists</a>,
+          }
+        ]}
       />
-
-      <div className='text-center pt-8'>
-      <Button className='bg-blue-400 w-4/12' >Add new ticket</Button>
-      <p className='pt-4'>Total tickets : 50</p>
-      <p>Pending : 50</p>
-      </div>
-      <div>
-        <Typography.Title>Recently added tickets</Typography.Title>
-        <div>
-          <TicketTable tickets={tickets} 
-          scroll={210}/>
+      <div >
+        <div className='flex justify-evenly items-center pt-4 mb-5'>
+          <Button className='bg-blue-500' type='primary'>Add new Ticket</Button>
+          <Input.Search
+            placeholder="search tickets"
+            style={
+              {
+                width: 300
+              }
+            }
+            enterButton="Search"
+          
+            allowClear
+            onSearch={onSearch}
+          />
         </div>
+        <TicketTable
+        tickets={tableData}
+        scroll={325}
+        />
       </div>
-
     </div>
   )
 }
 
-export default Dashboard
+export default TicketList

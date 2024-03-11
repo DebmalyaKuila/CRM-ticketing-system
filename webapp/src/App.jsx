@@ -4,6 +4,7 @@ import Entry from "./pages/Entry.page/entryLogin.jsx"
 import DefaultLayout from './layout/defaultLayout'
 import Dashboard from './pages/Dashboard.page/dashboard'
 import AddTicketsPage from './pages/AddTickets.page/addTickets'
+import TicketList from './pages/TicketListing.page/TicketList.page.jsx'
 function App() {
 
 
@@ -12,7 +13,8 @@ function App() {
       <DefaultLayout>
       {/* <Entry/> */}
        {/* <Dashboard/> */}
-       <AddTicketsPage/>
+       {/* <AddTicketsPage/> */}
+       <TicketList/>
       </DefaultLayout>
       
     </>

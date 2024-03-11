@@ -9,7 +9,7 @@ const AddTicketsPage = () => {
 const handleSubmit=(form)=>{
   //just converted antd dayjs into string format
   //if there's a date available convert that to string , otherwise if it's empty ,it will be today's date
-  console.log({...form,["issue_date"]:form.issue_date?form.issue_date.format():""});
+  console.log({...form,["issue_date"]:form.issue_date?form.issue_date.format():"",["status"]:"issue_raised",["assigned_to"]:"open"});
 
 }
     

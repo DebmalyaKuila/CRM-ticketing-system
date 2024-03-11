@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table } from "antd"
 
-const TicketTable = ({tickets}) => {
+const TicketTable = ({tickets,scroll}) => {
 
     const dataSource =tickets
 
@@ -21,11 +21,17 @@ const TicketTable = ({tickets}) => {
             dataIndex: 'status',
             key: 'status',
         },
+        {
+            title: 'Found on',
+            dataIndex: 'issue_date',
+            key: 'issue_date',
+        },
     ];
 
     return (
-        <Table dataSource={dataSource} columns={columns} scroll={{
-            y: 210,
+        <Table dataSource={dataSource} columns={columns} 
+        scroll={{
+            y: scroll,
           }}
           pagination={{
             pageSize: 25,
