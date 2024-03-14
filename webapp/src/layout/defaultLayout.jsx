@@ -10,7 +10,7 @@ const DefaultLayout = ({children}) => {
     <header className="header">
     <Header/>
     </header>
-    <main className="main">
+    <main className="main w-full ">
    {children}
     </main>
     <footer className="footer">

@@ -1,6 +1,6 @@
 .default-layout{
 background-color: rgb(231, 243, 255);
-height: 100vh;
+min-height: 100vh;
 display: flex;
 flex-direction: column;
 }
