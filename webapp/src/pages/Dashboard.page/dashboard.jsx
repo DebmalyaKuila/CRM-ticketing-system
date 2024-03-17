@@ -60,7 +60,7 @@ const Dashboard = () => {
 },
 ];
   return (
-    <div className=' h-full px-2 py-4'>
+    <div className=' h-full px-2 py-2'>
       <Breadcrumb
       items={[
         {
@@ -72,7 +72,7 @@ const Dashboard = () => {
       ]}
       />
 
-      <div className='text-center pt-8'>
+      <div className='text-center pt-5'>
       <Button className='bg-blue-400 w-4/12' >Add new ticket</Button>
       <p className='pt-4'>Total tickets : 50</p>
       <p>Pending : 50</p>
