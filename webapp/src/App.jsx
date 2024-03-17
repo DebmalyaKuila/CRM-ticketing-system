@@ -15,10 +15,10 @@ function App() {
     <>
       {/* <Entry/> */}
       <DefaultLayout>
-       {/* <Dashboard/> */}
+       <Dashboard/>
        {/* <AddTicketsPage/> */}
        {/* <TicketList/> */}
-       <TicketPage/>
+       {/* <TicketPage/> */}
       </DefaultLayout>
       
     </>

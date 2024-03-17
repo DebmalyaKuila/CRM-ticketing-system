@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './partials/header.comp'
+import Header from './partials/header/header.comp'
 import Footer from "./partials/footer.comp"
 import "./defaultLayoutr.style.css"
 
