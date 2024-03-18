@@ -1,12 +1,20 @@
 import React from 'react'
 import {Form,Input,Button,Typography} from "antd"
 
+import "./entry.style.css"
 
 
-const ResetPassword = ({handleOnResetPasswordSubmit}) => {
+const ResetPassword = () => {
+
+  
+  const handleOnResetPasswordSubmit = (form)=>{
+    //TODO : api call to submit this form
+ console.log(form);
+}
 
   return (
-    <div className='bg-slate-100 px-20 py-14 rounded-xl'>
+    <div className="entry-page">
+         <div className='bg-slate-100 px-20 py-14 rounded-xl '>
         <Typography.Title level={2} className='text-center pb-6'>Reset Password</Typography.Title>
         <Form
         layout='vertical'
@@ -25,6 +33,7 @@ const ResetPassword = ({handleOnResetPasswordSubmit}) => {
             >
             <Input 
             placeholder='Enter Email ' 
+            autoFocus
             required
             />
             </Form.Item>
@@ -39,8 +48,9 @@ const ResetPassword = ({handleOnResetPasswordSubmit}) => {
         Reset Password
       </Button>
     </Form.Item>
-    <Typography.Link href="#">Login now </Typography.Link>
+    <Typography.Link href="/" underline>Login now </Typography.Link>
         </Form>
+    </div>
     </div>
   )
 }

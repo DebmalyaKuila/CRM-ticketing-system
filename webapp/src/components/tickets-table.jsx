@@ -10,6 +10,7 @@ const TicketTable = ({tickets,scroll}) => {
             title: '#',
             dataIndex: 'ticket_id',
             key: 'ticket_id',
+            width:"15%"
         },
         {
             title: 'Issue',

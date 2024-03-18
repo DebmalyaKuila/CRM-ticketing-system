@@ -1,8 +1,11 @@
 import React from 'react'
 import {Breadcrumb,Button,Typography} from 'antd'
+import { useNavigate } from "react-router-dom";
+
 import TicketTable from '../../components/tickets-table'
 
 const Dashboard = () => {
+  const navigate=useNavigate()
   const tickets= [
     {
         ticket_id: '1',
@@ -73,7 +76,7 @@ const Dashboard = () => {
       />
 
       <div className='text-center pt-5'>
-      <Button className='bg-blue-400 w-4/12' >Add new ticket</Button>
+      <Button className='bg-blue-400 w-4/12' onClick={()=>navigate("/add-ticket")} >Add new ticket</Button>
       <p className='pt-4'>Total tickets : 50</p>
       <p>Pending : 50</p>
       </div>

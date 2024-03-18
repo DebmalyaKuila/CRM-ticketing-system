@@ -1,7 +1,9 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 import { Breadcrumb, Button, Typography, Input ,Table} from 'antd'
 import MessageHistory from '../../components/message-history/messageHistory';
 const TicketPage = () => {
+  const {ticketId}=useParams()
 
   const ticket={
     ticket_id: '1',
@@ -60,6 +62,7 @@ const TicketPage = () => {
       </div>
       <div>
         {/* the whole ticket summary */}
+        <Typography.Paragraph style={{fontSize:"1.3rem ",margin:0}}><strong>Ticket Id : </strong> {ticketId}</Typography.Paragraph>
         <Typography.Paragraph style={{fontSize:"1.3rem ",margin:0}}><strong>Subject : </strong> {ticket.issue}</Typography.Paragraph>
         <Typography.Paragraph style={{fontSize:"1.3rem",margin:0}}><strong>Open on : </strong> {ticket.issue_date}</Typography.Paragraph>
         <Typography.Paragraph style={{fontSize:"1.3rem",margin:0}}><strong>Status : </strong> {ticket.status}</Typography.Paragraph>

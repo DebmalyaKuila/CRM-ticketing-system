@@ -1,9 +1,10 @@
 import React,{useEffect, useState} from 'react'
+import {Link, useNavigate } from 'react-router-dom'
 import { Breadcrumb, Button, Typography, Input ,Table} from 'antd'
 
 import TicketTable from '../../components/tickets-table'
 const TicketList = () => {
-
+  const navigate=useNavigate()
   const tickets= [
     {
         ticket_id: '1',
@@ -64,7 +65,9 @@ const TicketList = () => {
 const [tableData,setTableData]=useState([])
 
 useEffect(()=>{
-  setTableData(tickets)
+  setTableData(tickets.map((obj)=>{
+    return {...obj,["issue"]:<Link to={`/ticket/${obj.ticket_id}`}>{obj?.issue.toUpperCase()}</Link>}
+  }))
 },[])
 
 
@@ -98,7 +101,7 @@ useEffect(()=>{
       />
       <div >
         <div className='flex justify-evenly items-center pt-4 mb-5'>
-          <Button className='bg-blue-500' type='primary'>Add new Ticket</Button>
+          <Button className='bg-blue-500' type='primary' onClick={()=>navigate("/add-ticket")}>Add new Ticket</Button>
           <Input.Search
             placeholder="search tickets"
             style={

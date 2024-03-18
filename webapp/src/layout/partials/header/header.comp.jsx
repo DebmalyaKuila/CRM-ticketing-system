@@ -20,9 +20,9 @@ const Header = () => {
       <div className="logo">CRM</div>
       <nav className='nav-bar'>
         <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Tickets</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="tickets">Tickets</a></li>
+          <li><a href="/">Logout</a></li>
         </ul>
       </nav>
       <div className="sidebar">
@@ -35,9 +35,9 @@ const Header = () => {
       open={open}
       >
         <ul>
-          <li><a onClick={showDrawer} href="#">Dashboard</a></li>
-          <li><a onClick={showDrawer} href="#">Tickets</a></li>
-          <li><a onClick={showDrawer} href="#">Logout</a></li>
+          <li><a onClick={showDrawer} href="/dashboard">Dashboard</a></li>
+          <li><a onClick={showDrawer} href="/tickets">Tickets</a></li>
+          <li><a onClick={showDrawer} href="/">Logout</a></li>
         </ul>
       </Drawer>
       </div>
