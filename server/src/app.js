@@ -17,9 +17,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+//load routers
+const userRouter=require("./Routes/userRouter")
+const ticketRouter=require("./Routes/ticketRouter")
 
-app.use("/",(req,res)=>{
-    res.json({message : "server is up and running..."})
+//using routers
+app.use("/v1/user",userRouter)
+app.use("/v1/ticket",ticketRouter)
+
+
+//setting up error handling
+const handleError=require("./utils/errorHandler")
+
+app.use((req,res,next)=>{
+    //when no matching route is found , we are throwing a "resource not found error"
+   const error=new Error("resources not found")
+   error.status=404
+   next(error)
+})
+
+app.use((error,req,res,next)=>{
+    handleError(error,res)
 })
 
 
